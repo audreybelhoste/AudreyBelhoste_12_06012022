@@ -9,18 +9,22 @@ function VerticalNav() {
 		<nav className='verticalNav'>
 			<Icon 
 				img={Yoga}
+				backgroundColor='bg-white'
 				alt='Yoga'
 			/>
 			<Icon 
 				img={Swimming}
+				backgroundColor='bg-white'
 				alt='Natation'
 			/>
 			<Icon 
 				img={Bike}
+				backgroundColor='bg-white'
 				alt='Vélo'
 			/>
 			<Icon 
 				img={Fitness}
+				backgroundColor='bg-white'
 				alt='Fitness'
 			/>
 			<p className='verticalNav__copyright'>Copyright, SportSee 2020</p>

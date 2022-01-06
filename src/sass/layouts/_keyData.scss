@@ -1,0 +1,26 @@
+.keyData{
+	background-color: #FBFBFB;
+	max-width: 250px;
+	display: flex;
+	column-gap: 24px;
+	align-items: center;
+	padding: 32px;
+	margin-bottom: 40px;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+	border-radius: 5px;
+
+	&:last-child{
+		margin-bottom: 0;
+	}
+
+	&__count{
+		font-size: 1.35rem;
+	 	@extend .font-bold;
+		margin: 0 0 2px;
+	}
+
+	&__element{
+		font-size: 0.9rem;
+		margin: 0;
+	}
+}
