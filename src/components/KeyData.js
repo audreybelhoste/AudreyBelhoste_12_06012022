@@ -1,17 +1,17 @@
 import Icon from './Icon'
 
+function KeyData({img, backgroundColor, alt, count, element}) {
 
-function KeyData(props) {
 	return (
 		<div className="keyData">
 			<Icon 
-				img={props.img}
-				backgroundColor={props.backgroundColor}
-				alt={props.alt}
+				img={img}
+				backgroundColor={backgroundColor}
+				alt={alt}
 			/>
 			<div>
-				<p className="keyData__count">{props.count}</p>
-				<p className="keyData__element">{props.element}</p>
+				<p className="keyData__count">{count}</p>
+				<p className="keyData__element">{element}</p>
 			</div>
 		</div>
 	)

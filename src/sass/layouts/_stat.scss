@@ -1,0 +1,42 @@
+.statContainer{
+	display: flex;
+}
+
+.keyDataContainer{
+	width: 30%;
+}
+
+.charts{
+	width: 80%;
+}
+
+.score{
+	height: 250px;
+	width: 250px;
+	background-color: #FBFBFB;
+	border-radius: 5px;
+	position: relative;
+
+	&__title{
+		position: absolute;
+		top: 20px;
+		left: 30px;
+
+		@extend .font-bold;
+	}
+
+	&__content{
+		max-width: 60px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center;
+		margin: 0;
+
+		.strong{
+			font-size: 2rem;
+			@extend .font-bold;
+		}
+	}
+}
