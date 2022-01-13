@@ -1,5 +1,6 @@
 .statContainer{
 	display: flex;
+	gap: 30px;
 }
 
 .keyDataContainer{
@@ -7,7 +8,64 @@
 }
 
 .charts{
-	width: 80%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.activity{
+	min-width: 835px;
+	height: 340px;
+	position: relative;
+	margin-bottom: 30px;
+
+	&__title{
+		position: absolute;
+		top: -10px;
+		left: 30px;
+
+		@extend .font-bold;
+	}
+
+	.custom-tooltip{
+		background-color: #FF0000;
+		color: white;
+		padding: 10px;
+		font-size: 8px;
+	}
+}
+
+.performance{
+	height: 250px;
+	width: 250px;
+	background-color: #282D30;
+	border-radius: 5px;
+}
+
+.averageSessions{
+	height: 250px;
+	width: 250px;
+	background-color: #FF0000;
+	border-radius: 5px;
+	position: relative;
+
+	.custom-tooltip{
+		background-color: white;
+		padding: 7px;
+		
+		.label{
+			margin: 0;
+		}
+	}
+
+	&__title{
+		position: absolute;
+		top: 10px;
+		left: 30px;
+		color: white;
+		max-width: 150px;
+
+		@extend .font-bold;
+	}
 }
 
 .score{
@@ -19,7 +77,7 @@
 
 	&__title{
 		position: absolute;
-		top: 20px;
+		top: 10px;
 		left: 30px;
 
 		@extend .font-bold;
