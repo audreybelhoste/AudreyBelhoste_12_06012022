@@ -1,3 +1,5 @@
-import { USER_ACTIVITY } from "../assets/data";
+import axios from "axios";
 
-export const getActivityByUserId = (id) => USER_ACTIVITY.find((elt) => elt.userId === id)
+export const getActivityByUserId = async (id) => {
+	return axios.get(`http://localhost:3000/user/${id}/activity`).then(response => response.data)
+}

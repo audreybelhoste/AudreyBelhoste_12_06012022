@@ -1,5 +1,6 @@
 import { getActivityByUserId } from "../services/activityService"
-import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis, ZAxis } from "recharts"
+import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts"
+import { useEffect, useState } from "react";
 
 const CustomTooltip = ({ active, payload, label }) => {
 		if(active && payload && label){
@@ -15,9 +16,25 @@ const CustomTooltip = ({ active, payload, label }) => {
 };
 
 function Activity() {
-	let activity = getActivityByUserId(12)
+	const [activity, setActivity] = useState([])
 
-	const data = activity.sessions;
+	useEffect(() => {
+		getActivityByUserId(process.env.REACT_APP_USER_ID).then(function(response){
+			setActivity(response.data.sessions)
+		})
+		
+	}, [])
+
+	const data = activity.map(session => {
+		const date = new Date(session.day)
+		
+		session = {
+			...session,
+			'day' : date.getDate(),
+		}
+		
+		return session
+	});
 
 	return (
 		<div className="activity">
@@ -30,19 +47,19 @@ function Activity() {
 					margin={{
 						top: 40,
 						right: 5,
-						left: 5,
-						bottom: 5,
+						left: 30,
+						bottom: 20,
 					}}
 					barSize={7}
 				>
 					<CartesianGrid strokeDasharray="3" vertical={false}/>
-					<XAxis dataKey="day" />
-					<YAxis yAxisId="left" dataKey="kilogram" orientation="right" type="number" domain={['dataMin - 1', 'dataMax + 1']} axisLine={false}/>
-					<YAxis yAxisId="right" dataKey="calories" hide="true"/>
+					<XAxis dataKey="day" tickLine={false} tickMargin={15} />
+					<YAxis yAxisId="left" dataKey="kilogram" orientation="right" type="number" domain={['dataMin - 1', 'dataMax + 1']} axisLine={false} tickLine={false}/>
+					<YAxis yAxisId="right" dataKey="calories" hide={true}/>
 					<Tooltip content={<CustomTooltip />}/>
-					<Legend verticalAlign="top" height={36} align="right" iconType={'circle'} iconSize={10} wrapperStyle={{right: 80, top: 0}} />
-					<Bar yAxisId="left" dataKey="kilogram" fill="#282D30"/>
-					<Bar yAxisId="right" dataKey="calories" fill="#E60000" />
+					<Legend verticalAlign="top" height={36} align="right" iconType="circle" iconSize={10} wrapperStyle={{right: 30, top: 20}} />
+					<Bar yAxisId="left" name="Poids (kg)" dataKey="kilogram" fill="#282D30" radius={[10,10,0,0]}/>
+					<Bar yAxisId="right" name="Calories brûlées (kCal)" dataKey="calories" fill="#E60000" radius={[10,10,0,0]}/>
 				</BarChart>
 			</ResponsiveContainer>
 		</div>

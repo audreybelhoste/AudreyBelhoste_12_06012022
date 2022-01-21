@@ -1,3 +1,5 @@
-import { USER_AVERAGE_SESSIONS } from "../assets/data";
+import axios from "axios";
 
-export const getAverageSessionsByUserId = (id) => USER_AVERAGE_SESSIONS.find((elt) => elt.userId === id)
+export const getAverageSessionsByUserId = (id) => {
+	return axios.get(`http://localhost:3000/user/${id}/average-sessions`).then(response => response.data)
+}

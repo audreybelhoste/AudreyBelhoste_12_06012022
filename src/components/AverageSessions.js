@@ -1,4 +1,5 @@
-import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import { useEffect, useState } from "react";
+import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis } from "recharts";
 import { getAverageSessionsByUserId } from "../services/averageSessionsService"
 
 const CustomTooltip = ({ active, payload, label }) => {
@@ -14,9 +15,47 @@ const CustomTooltip = ({ active, payload, label }) => {
 };
 
 function AverageSessions() {
-	let averageSessions = getAverageSessionsByUserId(12)
+	const [averageSessions, setAverageSessions] = useState([])
 
-	const data = averageSessions.sessions;
+	useEffect(() => {
+		getAverageSessionsByUserId(process.env.REACT_APP_USER_ID).then(function(response){
+			setAverageSessions(response.data.sessions)
+		})
+	}, [])
+
+	const data = averageSessions.map(session => {
+		let day = ''
+		switch (session.day) {
+			case 1:
+				day = 'L'
+				break
+			case 2:
+				day = 'M'
+				break
+			case 3:
+				day = 'M'
+				break
+			case 4:
+				day = 'J'
+				break
+			case 5:
+				day = 'V'
+				break
+			case 6:
+				day = 'S'
+				break
+			case 7:
+				day = 'D'
+				break
+			default:
+				day = ''
+		}
+		session = {
+			...session,
+			'day' : day,
+		}
+		return session
+	});
 
 	return (
 		<div className="averageSessions">
@@ -28,18 +67,18 @@ function AverageSessions() {
           data={data}
           margin={{
             top: 70,
-            right: 10,
-            left: 10,
-            bottom: 0,
+            right: 0,
+            left: 0,
+            bottom: 15,
           }}
         >
 					<defs>
 						<linearGradient id="colorSessionLength" x1="0" y1="0" x2="0" y2="1">
-							<stop offset="5%" stopColor="#FFFFFF" stopOpacity={0.8}/>
-							<stop offset="95%" stopColor="#FFFFFF" stopOpacity={0}/>
+							<stop offset="5%" stopColor="#FFFFFF" stopOpacity={0.3}/>
+							<stop offset="90%" stopColor="#FFFFFF" stopOpacity={0.0}/>
 						</linearGradient>
 					</defs>
-          <XAxis dataKey="day" />
+          <XAxis dataKey="day" axisLine={false} tickLine={false} tickMargin={10} padding={{ left: 10, right: 10 }}/>
           <Tooltip content={<CustomTooltip />}/>
           <Area type="monotone" dataKey="sessionLength" stroke="#FFFFFF" fill="url(#colorSessionLength)" />
         </AreaChart>

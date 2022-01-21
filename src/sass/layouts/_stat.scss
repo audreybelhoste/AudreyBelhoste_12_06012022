@@ -1,6 +1,11 @@
 .statContainer{
 	display: flex;
-	gap: 30px;
+	gap: 10px;
+	margin-top: 40px;
+
+	@include huge{
+		gap: 30px;
+	}
 }
 
 .keyDataContainer{
@@ -13,14 +18,21 @@
 }
 
 .activity{
-	min-width: 835px;
-	height: 340px;
+	width: 620px;
+	height: 250px;
 	position: relative;
 	margin-bottom: 30px;
+	background-color: #FBFBFB;
+	border-radius: 5px;
+
+	@include huge{
+		width: 835px;
+		height: 320px;
+	}
 
 	&__title{
 		position: absolute;
-		top: -10px;
+		top: 5px;
 		left: 30px;
 
 		@extend .font-bold;
@@ -34,16 +46,28 @@
 	}
 }
 
+.performance, .score, .averageSessions{
+	height: 200px;
+	width: 200px;
+
+	@include huge{
+		width: 250px;
+		height: 250px;
+	}
+}
+
 .performance{
-	height: 250px;
-	width: 250px;
+
 	background-color: #282D30;
 	border-radius: 5px;
+
+	.recharts-polar-angle-axis-tick-value{
+		font-size: 12px;
+		fill: white;
+	}
 }
 
 .averageSessions{
-	height: 250px;
-	width: 250px;
 	background-color: #FF0000;
 	border-radius: 5px;
 	position: relative;
@@ -63,14 +87,18 @@
 		left: 30px;
 		color: white;
 		max-width: 150px;
+		opacity: 0.5;
 
 		@extend .font-bold;
+	}
+
+	.recharts-cartesian-axis-tick-value{
+		fill: white;
+		font-size: 12px;
 	}
 }
 
 .score{
-	height: 250px;
-	width: 250px;
 	background-color: #FBFBFB;
 	border-radius: 5px;
 	position: relative;
@@ -97,4 +125,10 @@
 			@extend .font-bold;
 		}
 	}
+
+	.recharts-sector {
+		stroke-linejoin: round;
+		stroke-width: 7px;
+	}
 }
+

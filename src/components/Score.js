@@ -1,19 +1,19 @@
-import { useState } from "react";
+import propTypes from "prop-types";
 import { Pie, PieChart, ResponsiveContainer } from "recharts"
 
-function Score(props) {
-	const [todayScore] = useState(props);
+function Score({todayScore}) {
 
 	const data = [
 		{
 			name: 'todayScore',
-			todayScore: todayScore.todayScore,
-			fill: '#E60000',
+			todayScore: 1 - todayScore,
+			fill: '#FBFBFB',
 		},
 		{
 			name: 'todayScore',
-			todayScore: 1 - todayScore.todayScore,
-			fill: '#FBFBFB',
+			todayScore: todayScore,
+			fill: '#E60000',
+			stroke: '#E60000',
 		},
 	];
 
@@ -21,22 +21,25 @@ function Score(props) {
 		<div className="score">
 			<p className="score__title">Score</p>
 			<ResponsiveContainer width="100%" height="100%">
-				<PieChart width={100} height={100}>
+				<PieChart>
 					<Pie 
 					data={data} 
 					dataKey="todayScore" 
 					nameKey="name" 
-					cx="50%"
-					cy="50%"
-					startAngle={180}
-					endAngle={-180}
+					startAngle={-180}
+					endAngle={180}
 					innerRadius={60}
-					outerRadius={80} />
+					outerRadius={60} 
+					/>
 				</PieChart>
 			</ResponsiveContainer>
-			<p className="score__content"><span class="strong">{ todayScore.todayScore*100 }%</span> de votre objectif</p>
+			<p className="score__content"><span class="strong">{ todayScore*100 }%</span> de votre objectif</p>
 		</div>
 	)
+}
+
+Score.propTypes = {
+  name: propTypes.number
 }
 
 export default Score

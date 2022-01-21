@@ -1,7 +1,12 @@
 .userInfos{
 	&__title{
-		font-size: 3.2rem;
-		margin-top: 60px;
+		font-size: 1.8rem;
+		margin-top: 10px;
+
+		@include huge{
+			font-size: 3.2rem;
+			margin-top: 40px;
+		}
 
 		&__color{
 			color: $brand-primary;
@@ -9,11 +14,19 @@
 	}
 
 	&__text{
-		font-size: 1.2rem; 
+		font-size: 1rem; 
+
+		@include huge{
+			font-size: 1.2rem;
+		}
 
 		&__clap{
-			max-height: 24px;
+			max-height: 18px;
 			margin-left: 3px;
+
+			@include huge{
+				max-height: 24px;
+			}
 		}
 	}
 }

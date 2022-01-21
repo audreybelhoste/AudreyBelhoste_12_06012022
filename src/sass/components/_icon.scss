@@ -1,10 +1,15 @@
 .icon{
-	width: 64px;
-	height: 64px;
+	width: 40px;
+	height: 40px;
 	border-radius: 6px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	@include huge{
+		width: 64px;
+		height: 64px;
+	}
 
 	&.bg-white{
 		background-color: $brand-light;
@@ -27,7 +32,12 @@
 	}
 
 	img{
-		max-width: 40px;
-		max-height: 40px;
+		max-width: 30px;
+		max-height: 30px;
+
+		@include huge{
+			max-width: 40px;
+			max-height: 40px;
+		}
 	}
 }

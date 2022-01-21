@@ -1,3 +1,5 @@
-import { USER_MAIN_DATA } from "../assets/data";
+import axios from "axios";
 
-export const getUserById = (id) => USER_MAIN_DATA.find((elt) => elt.id === id)
+export const getUserById = (id) => {
+	return axios.get(`http://localhost:3000/user/${id}`).then(response => response.data)
+}
