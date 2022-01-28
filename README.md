@@ -15,11 +15,17 @@
 * The `npm install` will allow you to install the dependencies.
 * For the backend fork [this repo](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard) and follow the instructions. 
 * Run the back end with `npm start`
-* Run the front end with `npm start`. It will ask you to use an other port ("Something is already running on port 3000. Would you like to run the app on another port instead?"). Choose 3001 for exemple.  
+* Run the front end with `npm start`.
 * You can now view sportsee in the browser at http://localhost:3001
 
 ## Environment variables
-Currently only two users have been mocked. 
+Currently there are only two users what you can retrieve. 
 You can use :
 * REACT_APP_USER_ID=12  
 * REACT_APP_USER_ID=18
+
+You can also edit these two configurations: 
+* Hostname of the API : `REACT_APP_URL` 
+* Port of the front-end server : `PORT`
+
+
