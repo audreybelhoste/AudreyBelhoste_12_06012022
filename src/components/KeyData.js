@@ -1,6 +1,7 @@
+import propTypes from 'prop-types'
 import Icon from './Icon'
 
-function KeyData({img, backgroundColor, alt, count, element}) {
+const KeyData = ({img, backgroundColor, alt, count, element}) => {
 
 	return (
 		<div className="keyData">
@@ -15,6 +16,14 @@ function KeyData({img, backgroundColor, alt, count, element}) {
 			</div>
 		</div>
 	)
+}
+
+KeyData.propTypes = {
+  img: propTypes.string,
+	backgroundColor: propTypes.string, 
+	alt: propTypes.string,
+	count: propTypes.string,
+	element: propTypes.string
 }
 
 export default KeyData

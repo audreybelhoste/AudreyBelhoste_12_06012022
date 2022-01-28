@@ -5,13 +5,13 @@ import Calorie from '../assets/icons/calorie.svg'
 import Protein from '../assets/icons/protein.svg'
 import Carbohydrate from '../assets/icons/carbohydrate.svg'
 import Lipid from '../assets/icons/lipid.svg'
-import Activity from "../components/Activity"
-import Score from "../components/Score"
-import Performance from "../components/Performance"
-import AverageSessions from "../components/AverageSessions"
+import Activity from "../components/graphs/Activity"
+import Score from "../components/graphs/Score"
+import Performance from "../components/graphs/Performance"
+import AverageSessions from "../components/graphs/AverageSessions"
 import React, { useEffect, useState } from "react"
 
-function Profile() {
+const Profile = () => {
 	const [user, setUser] = useState({})
 
 	useEffect(() => {
@@ -33,7 +33,7 @@ function Profile() {
 						<AverageSessions />
 						<Performance />
 						<Score
-							todayScore={user.todayScore}
+							todayScore={user.todayScore || null}
 						/>
 					</div>
 				</div>

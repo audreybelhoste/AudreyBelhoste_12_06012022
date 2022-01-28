@@ -4,7 +4,7 @@ import Swimming from '../assets/icons/swimming.svg'
 import Bike from '../assets/icons/bike.svg'
 import Fitness from '../assets/icons/fitness.svg'
 
-function VerticalNav() {
+const VerticalNav = () => {
 	return (
 		<nav className='verticalNav'>
 			<Icon 

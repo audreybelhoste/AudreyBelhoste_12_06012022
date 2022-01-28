@@ -1,6 +1,6 @@
 import Logo from '../assets/logo.png'
 
-function HorizontalNav() {
+const HorizontalNav = () => {
 	return (
 		<nav className='horizontalNav'>
 			<img src={Logo} alt='Logo SportSee'/>

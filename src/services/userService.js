@@ -1,5 +1,15 @@
 import axios from "axios";
 
-export const getUserById = (id) => {
-	return axios.get(`http://localhost:3000/user/${id}`).then(response => response.data)
+/**
+ * Fetch user informations from the API 
+ * @param { number } id User id 
+ * @returns { Promise } A promise containing informations about the user
+ */
+export const getUserById = async (id) => {
+	try {
+		const response = await axios.get(process.env.REACT_APP_URL + `/user/${id}`)
+		return response.data
+	} catch (e) {
+		alert('Le chargement des données a échoué.')
+	}
 }

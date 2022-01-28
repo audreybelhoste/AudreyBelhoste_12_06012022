@@ -1,13 +1,21 @@
-function Icon(props) {
+import propTypes from "prop-types";
+
+const Icon = ({img, backgroundColor, alt}) => {
 
 	let className = "icon ";
-	className += props.backgroundColor
+	className += backgroundColor
 
 	return (
 		<div className={className}>
-			<img src={props.img} alt={props.alt}/>
+			<img src={img} alt={alt}/>
 		</div>
 	)
+}
+
+Icon.propTypes = {
+  img: propTypes.string,
+	backgroundColor: propTypes.string,
+	alt: propTypes.string,
 }
 
 export default Icon
