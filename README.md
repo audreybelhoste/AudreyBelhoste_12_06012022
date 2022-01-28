@@ -3,6 +3,11 @@
 ## Prerequisites
 [NodeJS (version 12.18)](https://nodejs.org/en/)
 
+## Dependencies 
+* Prop-types 
+* Recharts
+* Axios
+
 ## Launching the project
 
 * Fork the repository
