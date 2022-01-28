@@ -19,4 +19,7 @@
 * You can now view sportsee in the browser at http://localhost:3001
 
 ## Environment variables
-Two users are availibles : to change user use REACT_APP_USER_ID=12 or use REACT_APP_USER_ID=18
+Currently only two users have been mocked. 
+You can use :
+* REACT_APP_USER_ID=12  
+* REACT_APP_USER_ID=18
