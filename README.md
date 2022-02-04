@@ -24,8 +24,10 @@ You can use :
 * REACT_APP_USER_ID=12  
 * REACT_APP_USER_ID=18
 
-You can also edit these two configurations: 
+You can also edit these three configurations: 
 * Hostname of the API : `REACT_APP_URL` 
 * Port of the front-end server : `PORT`
+* Use mocked data : `REACT_APP_MOCKED_DATA`
+
 
 
